@@ -17,6 +17,7 @@ jobs:
       - id: true4
         run: echo "value=1" >> "$GITHUB_OUTPUT"
       # test for true
+      - run: echo 'In GITHUB_OUTPUT and GITHUB_ENV, true is a non-empty string'
       - if: steps.true1.outputs.value
         run: echo "true1"
       - if: steps.true2.outputs.value
@@ -25,6 +26,12 @@ jobs:
         run: echo "true3"
       - if: steps.true4.outputs.value
         run: echo "true4"
+      - if: true
+        run: echo "true"
+      - if: 1
+        run: echo "true"
+      - if: 'some string'
+        run: echo "true"
       # false
       - id: false1
         run: echo "value=false" >> "$GITHUB_OUTPUT"
@@ -37,6 +44,7 @@ jobs:
       - id: false5
         run: echo "value=" >> "$GITHUB_OUTPUT"
       # test for false
+      - run: echo 'In GITHUB_OUTPUT and GITHUB_ENV, false is a empty string'
       - if: steps.false1.outputs.value
         run: echo "false1"
       - if: steps.false2.outputs.value
@@ -47,3 +55,15 @@ jobs:
         run: echo "false4"
       - if: steps.false5.outputs.value
         run: echo "false5"
+      - if: false
+        run: echo "false"
+      - if: 0
+        run: echo "false"
+      - if: -0
+        run: echo "false"
+      - if: ''
+        run: echo "false"
+      - if: ""
+        run: echo "false"
+      - if: null
+        run: echo "false"
