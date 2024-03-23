@@ -31,7 +31,7 @@ jobs:
         run: echo "true"
       - if: ${{ 1 }}
         run: echo "true"
-      - if: ${{ 'some string' }}
+      - if: ${{ format('some string') }}
         run: echo "true"
       # false
       - id: false1
