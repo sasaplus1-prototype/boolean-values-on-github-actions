@@ -62,9 +62,9 @@ jobs:
         run: echo "0"
       - if: ${{ -0 }}
         run: echo "-0"
-      - if: ${{ '' }}
+      - if: ${{ fromJSON('''') }}
         run: echo "''"
-      - if: ${{ format('""') }}
+      - if: ${{ fromJSON('""') }}
         run: echo '""'
       - if: ${{ null }}
         run: echo "null"
