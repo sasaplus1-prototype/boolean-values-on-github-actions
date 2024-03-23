@@ -64,8 +64,8 @@ jobs:
         run: echo "0"
       - if: ${{ -0 }}
         run: echo "-0"
-      - if: ${{ '''' }}
-        run: echo "''"
+      # - if: ${{ '''' }}
+      #   run: echo "''"
       - if: ${{ fromJSON('""') }}
         run: echo '""'
       - if: ${{ null }}
