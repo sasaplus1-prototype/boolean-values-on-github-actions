@@ -27,6 +27,7 @@ jobs:
         run: echo "true3"
       - if: steps.true4.outputs.value
         run: echo "true4"
+      - run: echo 'if conditions'
       - if: ${{ true }}
         run: echo "true"
       - if: ${{ 1 }}
@@ -56,15 +57,16 @@ jobs:
         run: echo "false4"
       - if: steps.false5.outputs.value
         run: echo "false5"
+      - run: echo 'if conditions'
       - if: ${{ false }}
         run: echo "false"
       - if: ${{ 0 }}
         run: echo "0"
       - if: ${{ -0 }}
         run: echo "-0"
-      - if: ${{ fromJSON('''') }}
+      - if: ${{ '''' }}
         run: echo "''"
-      - if: ${{ fromJSON('""') }}
+      - if: ${{ "" }}
         run: echo '""'
       - if: ${{ null }}
         run: echo "null"
