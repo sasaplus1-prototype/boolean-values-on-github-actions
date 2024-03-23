@@ -1,0 +1,49 @@
+name: boolean
+
+on:
+  - push
+
+jobs:
+  boolean:
+    runs-on: ubuntu-latest
+    steps:
+      # true
+      - id: true1
+        run: echo "value=true" >> "$GITHUB_OUTPUT"
+      - id: true2
+        run: echo "value=True" >> "$GITHUB_OUTPUT"
+      - id: true3
+        run: echo "value=TRUE" >> "$GITHUB_OUTPUT"
+      - id: true4
+        run: echo "value=1" >> "$GITHUB_OUTPUT"
+      # test for true
+      - if: steps.true1.outputs.value
+        run: echo "true1"
+      - if: steps.true2.outputs.value
+        run: echo "true2"
+      - if: steps.true3.outputs.value
+        run: echo "true3"
+      - if: steps.true4.outputs.value
+        run: echo "true4"
+      # false
+      - id: false1
+        run: echo "value=false" >> "$GITHUB_OUTPUT"
+      - id: false2
+        run: echo "value=False" >> "$GITHUB_OUTPUT"
+      - id: false3
+        run: echo "value=FALSE" >> "$GITHUB_OUTPUT"
+      - id: false4
+        run: echo "value=0" >> "$GITHUB_OUTPUT"
+      - id: false5
+        run: echo "value=" >> "$GITHUB_OUTPUT"
+      # test for false
+      - if: steps.false1.outputs.value
+        run: echo "false1"
+      - if: steps.false2.outputs.value
+        run: echo "false2"
+      - if: steps.false3.outputs.value
+        run: echo "false3"
+      - if: steps.false4.outputs.value
+        run: echo "false4"
+      - if: steps.false5.outputs.value
+        run: echo "false5"
