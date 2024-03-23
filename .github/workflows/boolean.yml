@@ -66,7 +66,7 @@ jobs:
         run: echo "-0"
       - if: ${{ '''' }}
         run: echo "''"
-      - if: ${{ "" }}
+      - if: ${{ '""' }}
         run: echo '""'
       - if: ${{ null }}
         run: echo "null"
