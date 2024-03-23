@@ -64,7 +64,7 @@ jobs:
         run: echo "false"
       - if: ${{ '' }}
         run: echo "false"
-      - if: ${{ toJSON("") }}
+      - if: ${{ format('""') }}
         run: echo "false"
       - if: ${{ null }}
         run: echo "false"
