@@ -30,9 +30,9 @@ jobs:
       - if: ${{ true }}
         run: echo "true"
       - if: ${{ 1 }}
-        run: echo "true"
+        run: echo "1"
       - if: ${{ format('some string') }}
-        run: echo "true"
+        run: echo "'some string'"
       # false
       - id: false1
         run: echo "value=false" >> "$GITHUB_OUTPUT"
@@ -59,12 +59,12 @@ jobs:
       - if: ${{ false }}
         run: echo "false"
       - if: ${{ 0 }}
-        run: echo "false"
+        run: echo "0"
       - if: ${{ -0 }}
-        run: echo "false"
+        run: echo "-0"
       - if: ${{ '' }}
-        run: echo "false"
+        run: echo "''"
       - if: ${{ format('""') }}
-        run: echo "false"
+        run: echo '""'
       - if: ${{ null }}
-        run: echo "false"
+        run: echo "null"
